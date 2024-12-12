@@ -1,0 +1,40 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 12.12.2024
+  Changes:
+    - Homepage added
+  Bugfixes:
+    - Ancient Drill recipe unavailable until Ancient Drill technology researched
+---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 12.12.2024
+  Bugfixes:
+    - Fixed stack ore output for Space Age
+  Balance:
+    - Pollution amount increased changed: 100 -> 200 to challenge you use an efficiency modules
+---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 12.12.2024
+  Balance:
+    - Pollution amount decreased changed: 500 -> 100
+---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 12.12.2024
+  Bugfixes:
+    - Added possibility to mine tungsten
+  Info:
+    - Try to fix changelog
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 12.12.2024
+  Changes:
+    - Adding "Vanilla" compatibility.
+  Balance:
+    - Adjusted recipe: lubricant is required now.
+    - Also changed Space Age version recipe.
+    - Utility science pack now required for Ancient Drill tech
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 12.12.2024
+  Changes:
+    - Initial release.
