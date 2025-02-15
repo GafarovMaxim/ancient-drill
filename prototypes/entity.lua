@@ -6,44 +6,52 @@ local ancient_drill_entity = {
         type = "mining-drill",
         name = "ancient-drill",
         icon = "__AncientDrill__/graphics/entity/ancient-drill-large.png",
-        icon_size = 32,
+        icon_size = 64,
         flags = {"placeable-neutral", "player-creation"},
-        minable = {mining_time = 25, result = "ancient-drill"},
-        max_health = 4000,
+        minable = {mining_time = 25, result = "ancient-drill"}, 
+        max_health = 1200, 
         corpse = "big-remnants",
-        dying_explosion = "big-explosion",
+        dying_explosion = "big-explosion", 
         collision_box = {{-5.3, -5.3}, {5.3, 5.3}},
         selection_box = {{-5.5, -5.5}, {5.5, 5.5}},
-        energy_source = { type = "electric", emissions_per_minute = { pollution = 200 }, usage_priority = "secondary-input" },
+        energy_source = {
+            type = "electric",
+            emissions_per_minute = { pollution = 200 },
+            usage_priority = "secondary-input"
+        },
         energy_usage = "10000kW",
-		resource_categories = {"basic-solid"},
-		mining_power = 5,
-		mining_speed = 20,
-		output_priority = "primary-output",resource_drain_rate_percent = 50,
-		storage_output_offset = {0, 5.6},
+		heating_energy = mods["space-age"] and "600kW" or nil,
+        resource_categories = mods["space-age"] and {"basic-solid", "hard-solid"} or {"basic-solid"},
+		drops_full_belt_stacks = mods["space-age"] and true or nil,
+        mining_power = 5, 
+        mining_speed = 20, 
+        output_priority = "primary-output",
+        resource_drain_rate_percent = 50,
+        storage_output_offset = {0, 5.6}, 
         vector_to_place_result = {0, 5.6},
-		fast_replaceable_group = "mining-drill",
+        fast_replaceable_group = "mining-drill",
         module_slots = 4,
-		storage_slots = 1,
-		allowed_effects = {"consumption", "speed",  "pollution", "productivity"},
+        storage_slots = 2,
+        allowed_effects = mods["space-age"] and {"consumption", "speed", "pollution", "productivity", "quality"} or {"consumption", "speed", "pollution", "productivity"}, -- Custom effects
         resource_searching_radius = 12.49,
-		radius_visualisation_picture = {
+        radius_visualisation_picture = {
             filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-radius-visualization.png",
             width = 12,
             height = 12,
         },
         monitor_visualization_tint = {r = 78, g = 173, b = 255},
+        
         working_sound = {
             sound = {
-                filename = "__base__/sound/electric-mining-drill.ogg",
-                volume = 2.5,
+                filename = "__AncientDrill__/sound/mixed-drill.ogg",
+                volume = 4.5,
             },
-            max_sounds_per_type = 4,
-            fade_in_ticks = 4,
-            fade_out_ticks = 20,
+            max_sounds_per_type = 4, -- Limits the number of overlapping sounds
+            fade_in_ticks = 4, -- Smooth fade-in effect for sound
+            fade_out_ticks = 20, -- Smooth fade-out effect for sound
         },
-        vehicle_impact_sound = sounds.generic_impact,
-		open_sound = sounds.drill_open,
+        vehicle_impact_sound = sounds.generic_impact, 
+        open_sound = sounds.drill_open,
         close_sound = sounds.drill_close,
         graphics_set = {
             animation = {
@@ -79,6 +87,26 @@ local ancient_drill_entity = {
                             },
                         },
                     },
+					                    --[[{
+                        priority = "high",
+                        width = 704,
+                        height = 704,
+                        frame_count = 120,
+                        animation_speed = 0.2,
+                        scale = 0.5,
+                        stripes = {
+                            {
+                                filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-emission-1.png",
+                                width_in_frames = 8,
+                                height_in_frames = 8,
+                            },
+                            {
+                                filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-emission-2.png",
+                                width_in_frames = 8,
+                                height_in_frames = 8,
+                            },
+                        },
+                    },--]]
                 },
             },
             working_visualisations = {
@@ -87,8 +115,8 @@ local ancient_drill_entity = {
                     animation = {
                         priority = "high",
                         width = 704,
-                        height = 400,
-                        shift = util.by_pixel_hr(0, 92),
+                        height = 704,
+                        -- shift = util.by_pixel_hr(0, 92),
                         frame_count = 120,
                         animation_speed = 0.5,
                         scale = 0.5,
@@ -113,15 +141,5 @@ local ancient_drill_entity = {
         },
     },
 }
-
-if mods["space-age"] then
-  ancient_drill_entity[1].heating_energy = "600kW"
-  ancient_drill_entity[1].allowed_effects = {"consumption", "speed",  "pollution", "productivity", "quality"}
-  ancient_drill_entity[1].storage_output_offset = {0, 5.6}
-  ancient_drill_entity[1].drops_full_belt_stacks = true
-  ancient_drill_entity[1].resource_categories = {"basic-solid", "hard-solid"}
-else
-  ancient_drill_entity[1].heating_energy = "0W"
-end
 
 data:extend(ancient_drill_entity)

@@ -10,6 +10,7 @@ data:extend(
 		order = "a[items]-b[ancient-drill]",
 		place_result = "ancient-drill",
 		stack_size = 10,
-		weight = 1000*kg
+		default_import_location = mods["space-age"] and "fulgora" or nil,
+		weight = 200*kg
 	},
 })
