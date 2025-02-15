@@ -5,7 +5,7 @@ local ancient_drill_entity = {
     {
         type = "mining-drill",
         name = "ancient-drill",
-        icon = "__AncientDrill__/graphics/entity/ancient-drill-large.png",
+        icon = "__AncientDrill__/graphics/entity/ancient-drill.png",
         icon_size = 64,
         flags = {"placeable-neutral", "player-creation"},
         minable = {mining_time = 25, result = "ancient-drill"}, 
@@ -44,9 +44,9 @@ local ancient_drill_entity = {
         working_sound = {
             sound = {
                 filename = "__AncientDrill__/sound/mixed-drill.ogg",
-                volume = 4.5,
+                volume = 3.5,
             },
-            max_sounds_per_type = 4, -- Limits the number of overlapping sounds
+            max_sounds_per_type = 1, -- Limits the number of overlapping sounds
             fade_in_ticks = 4, -- Smooth fade-in effect for sound
             fade_out_ticks = 20, -- Smooth fade-out effect for sound
         },
@@ -54,7 +54,8 @@ local ancient_drill_entity = {
         open_sound = sounds.drill_open,
         close_sound = sounds.drill_close,
         graphics_set = {
-            animation = {
+            always_draw_idle_animation  = true,
+            idle_animation = {
                 layers = {
                     {
                         filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-shadow.png",
@@ -62,76 +63,84 @@ local ancient_drill_entity = {
                         width = 1400,
                         height = 1400,
                         frame_count = 1,
-                        repeat_count = 120,
+                        repeat_count = 1,
                         animation_speed = 0.5,
                         draw_as_shadow = true,
                         scale = 0.5,
                     },
                     {
+                        filename = "__AncientDrill__/graphics/entity/ancient-drill-big.png",
                         priority = "high",
-                        width = 704,
-                        height = 704,
-                        frame_count = 120,
+                        width = 640,
+                        height = 640,
+                        frame_count = 1,
+       
                         animation_speed = 0.5,
-                        scale = 0.5,
-                        stripes = {
-                            {
-                                filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-animation-1.png",
-                                width_in_frames = 8,
-                                height_in_frames = 8,
-                            },
-                            {
-                                filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-animation-2.png",
-                                width_in_frames = 8,
-                                height_in_frames = 8,
-                            },
-                        },
+                        draw_as_shadow = false,
+                        scale = 0.55,
                     },
-					                    --[[{
-                        priority = "high",
-                        width = 704,
-                        height = 704,
-                        frame_count = 120,
-                        animation_speed = 0.2,
-                        scale = 0.5,
-                        stripes = {
-                            {
-                                filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-emission-1.png",
-                                width_in_frames = 8,
-                                height_in_frames = 8,
-                            },
-                            {
-                                filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-emission-2.png",
-                                width_in_frames = 8,
-                                height_in_frames = 8,
-                            },
-                        },
-                    },--]]
                 },
             },
             working_visualisations = {
                 {
                     fadeout = true,
+                    sync_fadeout = true,
+                    always_draw = true,
+                    constant_speed = true,
                     animation = {
-                        priority = "high",
-                        width = 704,
-                        height = 704,
-                        -- shift = util.by_pixel_hr(0, 92),
-                        frame_count = 120,
-                        animation_speed = 0.5,
-                        scale = 0.5,
-                        draw_as_light = true,
-                        blend_mode = "additive",
-                        stripes = {
+                        layers = {
                             {
-                                filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-animation-emission-1.png",
-                                width_in_frames = 8,
-                                height_in_frames = 8,
+                                filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-shadow.png",
+                                priority = "high",
+                                width = 1400,
+                                height = 1400,
+                                frame_count = 1,
+                                repeat_count = 120,
+                                animation_speed = 0.5,
+                                draw_as_shadow = true,
+                                scale = 0.5,
                             },
                             {
-                                filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-animation-emission-2.png",
-                                width_in_frames = 8,
-                                height_in_frames = 8,
+                                priority = "high",
+                                width = 704,
+                                height = 704,
+                                frame_count = 120,
+                                animation_speed = 0.5,
+                                scale = 0.5,
+                                draw_as_light = true,
+                                blend_mode = "additive",
+                                stripes = {
+                                    {
+                                        filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-animation-emission-1.png",
+                                        width_in_frames = 8,
+                                        height_in_frames = 8,
+                                    },
+                                    {
+                                        filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-animation-emission-2.png",
+                                        width_in_frames = 8,
+                                        height_in_frames = 8,
+                                    },
+                                },
+                            },
+                            {
+                                priority = "high",
+                                width = 704,
+                                height = 704,
+                                frame_count = 120,
+                                animation_speed = 0.5,
+                                scale = 0.5,
+                                stripes = {
+                                    {
+                                        filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-animation-1.png",
+                                        width_in_frames = 8,
+                                        height_in_frames = 8,
+                                    },
+                                    {
+                                        filename = "__AncientDrill__/graphics/entity/ancient-drill-hr-animation-2.png",
+                                        width_in_frames = 8,
+                                        height_in_frames = 8,
+                                    },
+                                },
                             },
                         },
                     },
