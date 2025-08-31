@@ -30,6 +30,15 @@ local function create_ancient_drill_technology()
         table.insert(technology.unit.ingredients, {"electromagnetic-science-pack", 2})
 		table.insert(technology.unit.ingredients, {"metallurgic-science-pack", 2})
     end
+
+    if mods["boblogistics"] and settings.startup["bobmods-logistics-beltoverhaul"].value == true then
+        for i, t in pairs(technology.prerequisites) do
+            if t == "turbo-transport-belt" then
+                table.remove(technology.prerequisites, i)
+                table.insert(technology.prerequisites, "logistics-4")
+            end            
+        end
+    end
     
     return technology
 end
