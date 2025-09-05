@@ -1,18 +1,34 @@
+require ("util")
+require("__base__/prototypes/entity/pipecovers")
+require("__base__/prototypes/entity/assemblerpipes")
+require ("circuit-connector-sprites")
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
+
+	circuit_connector_definitions["ancient-drill"] = circuit_connector_definitions.create_vector
+
+(
+  universal_connector_template,
+  {
+    { variation =  7, main_offset = util.by_pixel(-138.75,  98), shadow_offset = util.by_pixel(-138.75,  98), show_shadow = true },
+    { variation =  7, main_offset = util.by_pixel(-138.75,  98), shadow_offset = util.by_pixel(-138.75,  98), show_shadow = true },
+    { variation =  7, main_offset = util.by_pixel(-138.75,  98), shadow_offset = util.by_pixel(-138.75,  98), show_shadow = true },
+    { variation =  7, main_offset = util.by_pixel(-138.75,  98), shadow_offset = util.by_pixel(-138.75,  98), show_shadow = true },
+  }
+)
 
 local ancient_drill_entity = {
     {
         type = "mining-drill",
         name = "ancient-drill",
-        icon = "__AncientDrill__/graphics/entity/ancient-drill.png",
+        icon = "__AncientDrill__/graphics/icons/ancient-drill.png",
         icon_size = 64,
-        flags = {"placeable-neutral", "player-creation"},
-        minable = {mining_time = 25, result = "ancient-drill"}, 
+        flags = {"placeable-neutral", "placeable-player", "player-creation"},
+        minable = {mining_time = 1.5, result = "ancient-drill"}, 
         max_health = 1200, 
         corpse = "big-remnants",
         dying_explosion = "big-explosion", 
-        collision_box = {{-5.3, -5.3}, {5.3, 5.3}},
+        collision_box = {{-5.1, -5.1}, {5.1, 5.1}},
         selection_box = {{-5.5, -5.5}, {5.5, 5.5}},
         energy_source = {
             type = "electric",
@@ -23,16 +39,33 @@ local ancient_drill_entity = {
 		heating_energy = mods["space-age"] and "600kW" or nil,
         resource_categories = mods["space-age"] and {"basic-solid", "hard-solid"} or {"basic-solid"},
 		drops_full_belt_stacks = mods["space-age"] and true or nil,
+		input_fluid_box =
+    {
+      pipe_picture = assembler2pipepictures(),
+      pipe_covers = pipecoverspictures(),
+      volume = 1000,
+      pipe_connections =
+      {
+        { direction = defines.direction.west, position = {-5, 3} },
+		{ direction = defines.direction.west, position = {-5, -3} },
+        { direction = defines.direction.east, position = {5, -3} },
+        { direction = defines.direction.east, position = {5, 3} },
+      }
+    },
         mining_power = 5, 
         mining_speed = 20, 
         output_priority = "primary-output",
         resource_drain_rate_percent = 50,
         storage_output_offset = {0, 5.6}, 
-        vector_to_place_result = {0, 5.6},
+        vector_to_place_result = {0, 5.75},
         fast_replaceable_group = "mining-drill",
         module_slots = 4,
         storage_slots = 2,
-        allowed_effects = mods["space-age"] and {"consumption", "speed", "pollution", "productivity", "quality"} or {"consumption", "speed", "pollution", "productivity"}, -- Custom effects
+		circuit_connector = circuit_connector_definitions["ancient-drill"], 
+		circuit_wire_max_distance = default_circuit_wire_max_distance,
+		fixed_recipe = "ancient-drill",
+        show_recipe_icon = false,
+        allowed_effects = mods["quality"] and {"consumption", "speed", "pollution", "productivity", "quality"} or mods["K2QualityCompat"] and {"consumption", "speed", "pollution", "productivity", "quality"} or {"consumption", "speed", "pollution", "productivity"},
         resource_searching_radius = 12.49,
         radius_visualisation_picture = {
             filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-radius-visualization.png",
@@ -44,7 +77,7 @@ local ancient_drill_entity = {
         working_sound = {
             sound = {
                 filename = "__AncientDrill__/sound/mixed-drill.ogg",
-                volume = 3.5,
+                volume = 2,
             },
             max_sounds_per_type = 1, -- Limits the number of overlapping sounds
             fade_in_ticks = 4, -- Smooth fade-in effect for sound
@@ -74,7 +107,7 @@ local ancient_drill_entity = {
                         width = 640,
                         height = 640,
                         frame_count = 1,
-       
+
                         animation_speed = 0.5,
                         draw_as_shadow = false,
                         scale = 0.55,
@@ -150,5 +183,4 @@ local ancient_drill_entity = {
         },
     },
 }
-
 data:extend(ancient_drill_entity)
