@@ -1,10 +1,11 @@
 {
   "name": "AncientDrill",
-  "version": "1.3.2",
+  "version": "1.6.0",
   "factorio_version": "2.0",
   "title": "Ancient Drill",
   "author": "RaulMoreau",
+  "contact": "Discord: @raulmoreau",
   "homepage": "https://mods.factorio.com/mod/AncientDrill",
-  "dependencies": ["base >= 2.0.0", "? space-age >= 2.0.0"],
+  "dependencies": ["base >= 2.0.0", "? space-age >= 2.0.0", "? Krastorio2-spaced-out", "? Krastorio2", "? K2QualityCompat"],
   "description": "Adds a large ancient drill made from fulgorian scrap"
 }

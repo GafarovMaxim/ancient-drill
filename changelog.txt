@@ -1,17 +1,61 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.3.2
-Date: 02.14.2025
+Version: 1.6.0
+Date: 2025-09-05
   Changes:
-    - Fix animation and emissions , it's now independ of the drilling speed
-    - Probably fix the sound issue
+    - Bob's Logistics compatibility added (Thanks MeinChef!)
+    - German translation added (Thanks MeinChef!)
+---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 2025-08-16
+  Changes:
+    - Increased cost (including Krastorio2)
+    - Added compatibility with my new mod "Skewer's Deep Mining Drill Standalone"
+    - Some code fixes
+    - Fix animation and emissions , it's now independ of the drilling speed (but still strange behavior) (Thanks slasherbane!)
+    - Probably fix the sound issue (Thanks slasherbane!)
+    - RU locale adjusted (Thanks Onseshigo!)
+---------------------------------------------------------------------------------------------------
+Version: 1.4.2
+Date: 2025-04-07
+  Changes:
+    - Should be more compatible with mods that use quality
+---------------------------------------------------------------------------------------------------
+Version: 1.4.1
+Date: 2025-06-21
+  Changes:
+    - Compatible mods added into minor dependencies
+  Bugfixes:
+    - Fixed changelog
+---------------------------------------------------------------------------------------------------
+Version: 1.4.0
+Date: 2025-06-08
+  Changes:
+    - Added uranium support (with quite ugly pipe connections :( )
+    - Added compatibility with Krastorio 2 and Krastorio 2 Spaced Out with "so-so" balance
+    - Fixed quality modules support for Krastorio 2 Quality Compatibility mod
+---------------------------------------------------------------------------------------------------
+Version: 1.3.4
+Date: 2025-05-18
+  Changes:
+    - Reduced sound volume (4.5 -> 2.5)
+---------------------------------------------------------------------------------------------------
+Version: 1.3.3
+Date: 2025-04-23
+  Changes:
+    - Some minor code additions and icon fix
+---------------------------------------------------------------------------------------------------
+Version: 1.3.2
+Date: 2025-02-14
+  Changes:
+    - Mining time reduced 25s -> 1.5s
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.1
-Date: 02.14.2025
+Date: 2025-02-14
   Changes:
     - Custom sound added
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.0
-Date: 01.14.2025
+Date: 2025-01-14
   Changes:
     - Added setting to change ancient drill recipe (100 tungsten plates -> 2 big mining drills)
     - Fulgora set as default export surface
@@ -21,56 +65,56 @@ Date: 01.14.2025
     - Fixed belt stacking error for vanilla
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
-Date: 01.05.2025
+Date: 2025-01-05
   Changes:
     - Night glowing added (Thanks UPD-8 for solution!)
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.6
-Date: 01.04.2025
+Date: 2025-01-04
   Bugfixes:
     - Fixed clumsy deleted ore stacking >.< (I'm so sorry for that!)
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.5
-Date: 01.03.2025
+Date: 2025-01-03
   Bugfixes:
     - Semi-fixed broken animation (animation deleted till finds solution)
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.4
-Date: 12.12.2024
+Date: 2024-12-12
   Changes:
     - Homepage added
   Bugfixes:
     - Ancient Drill recipe unavailable until Ancient Drill technology researched
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.3
-Date: 12.12.2024
+Date: 2024-12-12
   Bugfixes:
     - Fixed stack ore output for Space Age
   Balance:
-    - Pollution amount increased changed: 100 -> 200 to challenge you use an efficiency modules
+    - Pollution amount increased: 100 -> 200 to challenge you to use efficiency modules
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.2
-Date: 12.12.2024
+Date: 2024-12-12
   Balance:
-    - Pollution amount decreased changed: 500 -> 100
+    - Pollution amount decreased: 500 -> 100
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.1
-Date: 12.12.2024
+Date: 2024-12-12
   Bugfixes:
     - Added possibility to mine tungsten
   Info:
     - Try to fix changelog
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1
-Date: 12.12.2024
+Date: 2024-12-12
   Changes:
-    - Adding "Vanilla" compatibility.
+    - Adding "Vanilla" compatibility
   Balance:
-    - Adjusted recipe: lubricant is required now.
-    - Also changed Space Age version recipe.
+    - Adjusted recipe: lubricant is required now
+    - Also changed Space Age version recipe
     - Utility science pack now required for Ancient Drill tech
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
-Date: 12.12.2024
+Date: 2024-12-12
   Changes:
-    - Initial release.
+    - Initial release
